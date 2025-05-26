@@ -1,0 +1,124 @@
+<div class="container">
+  <h2>Forest Fire Spread Prediction</h2>
+
+  <form (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label>firearea</label>
+      <input
+        type="number"
+        [(ngModel)]="formData.firearea"
+        name="firearea"
+        required
+        placeholder="e.g. 18"
+      />
+    </div>
+
+    <div class="form-group">
+      <label>fwi</label>
+      <input
+        type="number"
+        [(ngModel)]="formData.fwi"
+        name="fwi"
+        required
+        placeholder="e.g. 18"
+      />
+    </div>
+
+    <div class="form-group">
+      <label>ffmc</label>
+      <input type="number" [(ngModel)]="formData.ffmc" name="ffmc" required />
+    </div>
+
+    <div class="form-group">
+      <label>dmc</label>
+      <input
+        type="number"
+        step="0.01"
+        [(ngModel)]="formData.dmc"
+        name="dmc"
+        required
+      />
+    </div>
+
+    <div class="form-group">
+      <label>dc</label>
+      <input type="number" [(ngModel)]="formData.dc" name="dc" />
+    </div>
+
+    <div class="form-group">
+      <label>prec</label>
+      <input type="number" [(ngModel)]="formData.prec" name="prec" />
+    </div>
+
+    <div class="form-group">
+      <label>tmax</label>
+      <input type="number" [(ngModel)]="formData.tmax" name="tmax" />
+    </div>
+
+    <div class="form-group">
+      <label>ws</label>
+      <input type="number" step="0.1" [(ngModel)]="formData.ws" name="ws" />
+    </div>
+
+    <div class="form-group">
+      <label>rh</label>
+      <input type="number" [(ngModel)]="formData.rh" name="rh" />
+    </div>
+
+    <div class="form-group">
+      <label>fwi_prev1</label>
+      <input
+        type="number"
+        step="0.1"
+        [(ngModel)]="formData.fwi_prev1"
+        name="fwi_prev1"
+      />
+    </div>
+
+    <div class="form-group">
+      <label>fwi_prev2</label>
+      <input
+        type="number"
+        step="0.1"
+        [(ngModel)]="formData.fwi_prev2"
+        name="fwi_prev1"
+      />
+    </div>
+
+    <div class="form-group">
+      <label>rh_prev1</label>
+      <input type="number" [(ngModel)]="formData.rh_prev1" name="rh_prev1" />
+    </div>
+
+    <div class="form-group">
+      <label>rh_prev2</label>
+      <input type="number" [(ngModel)]="formData.rh_prev2" name="rh_prev2" />
+    </div>
+
+    <div class="form-group">
+      <label>d_vpd</label>
+      <input type="number" [(ngModel)]="formData.d_vpd" name="d_vpd" />
+    </div>
+
+    <div class="form-group">
+      <label>pctgrowth</label>
+      <input type="number" [(ngModel)]="formData.pctgrowth" name="pctgrowth" />
+    </div>
+
+    <div class="form-group">
+      <label>prevgrow</label>
+      <input type="number" [(ngModel)]="formData.prevgrow" name="prevgrow" />
+    </div>
+
+    <button type="submit">Predict</button>
+    <button type="button" (click)="resetForm()">Reset</button>
+  </form>
+
+  <div *ngIf="prediction">
+    <h3>Prediction Result: {{ prediction }}</h3>
+  </div>
+
+  <div *ngIf="error">
+    <h3>Invalid Form: {{ error }}</h3>
+  </div>
+</div>
